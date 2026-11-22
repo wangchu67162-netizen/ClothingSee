@@ -1,0 +1,5 @@
+# Optional experimental engine. Not installed by default; the demo uses Playwright.
+# Install only if you want BROWSER_ENGINE=browser_use:
+#   backend/.venv/Scripts/python.exe -m pip install -r backend/requirements-optional.txt
+# browser-use 1.0 needs an LLM to drive the browser; configure DASHSCOPE_API_KEY.
+browser-use==1.0.3

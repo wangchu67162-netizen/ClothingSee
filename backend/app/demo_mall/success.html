@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>下单成功 · 云裳商城</title>
+  <meta name="description" content="云裳商城下单成功（模拟支付）。" />
+  <link rel="stylesheet" href="mall.css" />
+</head>
+<body data-page="success">
+  <header class="mall-topbar">
+    <a class="mall-brand" href="index.html">
+      <span class="mall-brand-mark">云</span>
+      <span class="mall-brand-text">
+        <strong>云裳商城</strong>
+        <em>YUNSHANG MALL</em>
+      </span>
+    </a>
+    <span class="mall-demo-badge">模拟商城 · 课程演示</span>
+  </header>
+
+  <main class="mall-success-main">
+    <section class="mall-success-card">
+      <div class="mall-success-mark" aria-hidden="true">✓</div>
+      <p class="mall-eyebrow">ORDER CONFIRMED · 模拟支付成功</p>
+      <h1>下单成功</h1>
+      <p class="mall-success-copy">订单已写入「衣见 ATELIER」平台，可在平台「我的订单」中查看。</p>
+
+      <div class="mall-order-box">
+        <p class="mall-order-label">订单号</p>
+        <p class="mall-order-no" id="order-no" data-testid="mall-order-no"></p>
+        <p class="mall-order-total-row">合计 <strong id="order-total" data-testid="mall-order-total"></strong></p>
+      </div>
+
+      <p id="success-missing" class="mall-error" role="alert" hidden>未找到订单号，请返回商城重新下单。</p>
+
+      <div class="mall-success-actions">
+        <a class="mall-primary" href="index.html">继续逛逛</a>
+        <a class="mall-secondary-link" href="/orders">查看平台订单</a>
+      </div>
+      <p class="mall-tip">云裳商城为课程演示用模拟商城：不产生真实扣款，不登录真实电商账号。</p>
+    </section>
+  </main>
+
+  <footer class="mall-footer">
+    <p>云裳商城 · 衣见 ATELIER 内置模拟商城</p>
+    <p>本页为课程演示，不接入真实支付、不收集真实个人信息。</p>
+  </footer>
+
+  <script src="mall.js"></script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+/* 衣见 ATELIER · 设计令牌（T6 视觉基础，全部本地字体/素材，无外链） */
+:root {
+  color-scheme: dark;
+
+  /* 色彩：深空黑 + 香槟金 + 象牙白 */
+  --ink-950: #07070b;
+  --ink-900: #0b0e14;
+  --ink-850: #0e1119;
+  --ink-800: #121722;
+  --ink-700: #1a202c;
+  --ivory: #f5efe6;
+  --ivory-dim: #b9b0a2;
+  --champagne: #d8be93;
+  --champagne-bright: #f0ddbb;
+  --ember: #ff6b3d;
+  --sage: #6e8b86;
+  --plum: #3a2436;
+
+  /* 液态玻璃 */
+  --glass-fill: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.032) 46%,
+    rgba(255, 255, 255, 0.066)
+  );
+  --glass-fill-strong: linear-gradient(145deg, rgba(22, 27, 39, 0.84), rgba(7, 9, 15, 0.72));
+  --glass-border: rgba(255, 255, 255, 0.16);
+  --glass-stroke: linear-gradient(
+    150deg,
+    rgba(255, 255, 255, 0.46),
+    rgba(216, 190, 147, 0.2) 28%,
+    rgba(255, 255, 255, 0.045) 54%,
+    rgba(216, 190, 147, 0.28) 100%
+  );
+  --glass-stroke-strong: linear-gradient(
+    150deg,
+    rgba(255, 255, 255, 0.5),
+    rgba(216, 190, 147, 0.26) 30%,
+    rgba(255, 255, 255, 0.05) 58%,
+    rgba(255, 107, 61, 0.2) 100%
+  );
+  --glass-blur: 22px;
+  --glass-blur-strong: 32px;
+  --glass-saturate: 155%;
+  --glass-noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.055'/%3E%3C/svg%3E");
+  --glass-shadow: 0 24px 80px rgba(0, 0, 0, 0.42), 0 2px 10px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16), inset 0 -1px 0 rgba(0, 0, 0, 0.22);
+  --glass-shadow-strong: 0 40px 120px rgba(0, 0, 0, 0.58), 0 4px 18px rgba(0, 0, 0, 0.26),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18), inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+  --radius-glass: 28px;
+  --radius-card: 22px;
+  --radius-pill: 999px;
+
+  /* 字体：全部系统/本地栈，不请求网络字体 */
+  --font-display: Georgia, 'Times New Roman', 'Songti SC', STSong, SimSun, serif;
+  --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei UI',
+    'Microsoft YaHei', 'PingFang SC', 'Hiragino Sans GB', sans-serif;
+  --font-mono: 'Cascadia Code', Consolas, 'SFMono-Regular', 'Microsoft YaHei', monospace;
+
+  /* 动效 */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --dur-fast: 180ms;
+  --dur-base: 320ms;
+  --dur-slow: 560ms;
+
+  /* 焦点 */
+  --focus-color: rgba(240, 221, 187, 0.82);
+  --focus-shadow: 0 0 0 3px rgba(216, 190, 147, 0.18);
+
+  /* 布局 */
+  --header-height: 5.5rem;
+  --page-pad: clamp(1.25rem, 5vw, 6rem);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}

@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>商品详情 · 云裳商城</title>
+  <meta name="description" content="云裳商城商品详情（模拟商城）。" />
+  <link rel="stylesheet" href="mall.css" />
+</head>
+<body data-page="product">
+  <header class="mall-topbar">
+    <a class="mall-brand" href="index.html">
+      <span class="mall-brand-mark">云</span>
+      <span class="mall-brand-text">
+        <strong>云裳商城</strong>
+        <em>YUNSHANG MALL</em>
+      </span>
+    </a>
+    <nav class="mall-nav" aria-label="商城导航">
+      <a href="index.html">全部商品</a>
+      <a href="index.html?q=外套">外套</a>
+      <a href="index.html?q=上装">上装</a>
+      <a href="index.html?q=连衣裙">连衣裙</a>
+      <a href="index.html?q=下装">下装</a>
+      <a href="index.html?q=配饰">配饰</a>
+    </nav>
+    <span class="mall-demo-badge">模拟商城 · 课程演示</span>
+  </header>
+
+  <main class="mall-product-main">
+    <p class="mall-breadcrumb"><a href="index.html">云裳商城</a><span>/</span><span id="product-crumb">商品详情</span></p>
+
+    <div id="product-loading" class="mall-loading">正在为你取来这件衣裳…</div>
+    <p id="product-error" class="mall-error" role="alert" hidden></p>
+
+    <article id="product-panel" class="mall-product" hidden>
+      <div class="mall-product-media">
+        <div class="mall-product-frame">
+          <img id="product-image" src="" alt="" />
+        </div>
+        <div id="product-thumbs" class="mall-thumbs" aria-label="商品图集"></div>
+      </div>
+
+      <div class="mall-product-info">
+        <p class="mall-eyebrow" id="product-category"></p>
+        <h1 id="product-title" data-testid="mall-product-name">商品详情</h1>
+        <p class="mall-product-subtitle" id="product-subtitle"></p>
+
+        <div class="mall-price-row">
+          <span class="mall-price" id="product-price"></span>
+          <s class="mall-price-original" id="product-original"></s>
+          <span class="mall-ship-note">模拟商品 · 包邮</span>
+        </div>
+
+        <p class="mall-product-desc" id="product-desc"></p>
+
+        <dl class="mall-meta">
+          <div><dt>面料</dt><dd id="product-fabric"></dd></div>
+          <div><dt>版型</dt><dd id="product-fit"></dd></div>
+          <div><dt>场合</dt><dd id="product-occasion"></dd></div>
+          <div><dt>季节</dt><dd id="product-season"></dd></div>
+        </dl>
+
+        <div class="mall-option">
+          <span class="mall-option-label">颜色</span>
+          <div id="product-colors" class="mall-chips"></div>
+        </div>
+        <div class="mall-option">
+          <span class="mall-option-label">尺码</span>
+          <div id="product-sizes" class="mall-chips"></div>
+        </div>
+        <div class="mall-option">
+          <span class="mall-option-label">数量</span>
+          <div class="mall-qty">
+            <button type="button" id="qty-minus" aria-label="减少数量">−</button>
+            <input id="mall-qty" type="number" min="1" max="10" value="1" aria-label="购买数量" />
+            <button type="button" id="qty-plus" aria-label="增加数量">＋</button>
+          </div>
+        </div>
+
+        <p id="product-select-error" class="mall-error" role="alert" hidden>请选择颜色与尺码。</p>
+
+        <div class="mall-buy-row">
+          <button type="button" id="mall-buy-now" data-testid="mall-buy-now" class="mall-primary">
+            立即购买
+          </button>
+          <span class="mall-stock" id="product-stock"></span>
+        </div>
+        <p class="mall-tip">云裳商城为课程演示用模拟商城，提交订单不会产生真实扣款。</p>
+      </div>
+    </article>
+  </main>
+
+  <footer class="mall-footer">
+    <p>云裳商城 · 衣见 ATELIER 内置模拟商城</p>
+    <p>商品图与页面素材均来自本地，演示过程中不会产生真实扣款、不会登录真实电商账号。</p>
+  </footer>
+
+  <script src="mall.js"></script>
+</body>
+</html>

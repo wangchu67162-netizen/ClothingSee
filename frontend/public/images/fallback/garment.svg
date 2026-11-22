@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1200" viewBox="0 0 900 1200">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#17171f"/><stop offset="1" stop-color="#0a0a0f"/></linearGradient></defs>
+<rect width="900" height="1200" fill="url(#g)"/>
+<rect x="34" y="34" width="832" height="1132" fill="none" stroke="#d8be93" stroke-opacity=".25"/>
+<path d="M330 330 L420 280 L470 330 L560 330 L610 280 L700 340 L720 620 L640 650 L620 1000 L400 1000 L380 650 L300 620 Z" fill="#f5efe6" fill-opacity=".08" stroke="#d8be93" stroke-opacity=".5" stroke-width="2"/>
+<text x="100" y="1080" fill="#f5efe6" font-family="serif" font-size="64">衣见 ATELIER</text>
+<text x="104" y="1130" fill="#d8be93" font-family="sans-serif" font-size="24">IMAGE FALLBACK</text>
+</svg>

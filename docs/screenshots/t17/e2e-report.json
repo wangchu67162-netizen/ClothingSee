@@ -1,0 +1,63 @@
+{
+  "screenshots": {
+    "dir": "C:\\Users\\cc\\Desktop\\服装平台项目\\docs\\screenshots\\t17\\assistant-order",
+    "success": "C:\\Users\\cc\\Desktop\\服装平台项目\\docs\\screenshots\\t17\\assistant-order-success.png",
+    "files": [
+      "01.png",
+      "02.png",
+      "03.png",
+      "04.png",
+      "05.png",
+      "06.png",
+      "07.png"
+    ]
+  },
+  "demo_user": "demo",
+  "platform_order_no": "YJ202611212346482121",
+  "small_models": {
+    "vision_dim": 256,
+    "chebyshev": {
+      "distance": 3.0,
+      "similarity": 0.25,
+      "formula": "chebyshev: max_i |a_i - b_i|"
+    },
+    "similar_top": "云缎真丝衬衫",
+    "kg_nodes": 40,
+    "kg_edges": 137
+  },
+  "stylist": {
+    "session_id": "aa90366e2e8a440189ec73e6798bb14a",
+    "candidates": 11,
+    "messages": 10,
+    "revisions": 10,
+    "top3": [
+      "云缎真丝衬衫",
+      "暮色长风衣",
+      "墨影吊带长裙"
+    ],
+    "outfit_total": 2856.0
+  },
+  "assistant_recommend": {
+    "session_id": "ed520586d2ec46dea9ab89d9c572c4f6",
+    "cards": [
+      "暮色长风衣"
+    ],
+    "reply": "在衣橱里为你挑出 1 件与「风衣」相关的单品：暮色长风衣。每张卡片都可以打开平台详情或云裳商城。"
+  },
+  "assistant_order": {
+    "session_id": "ed520586d2ec46dea9ab89d9c572c4f6",
+    "engine": "playwright",
+    "order_no": "YJ202611212346510445",
+    "total": 1299.0,
+    "steps": 7
+  },
+  "browser_screenshots": [
+    "C:\\Users\\cc\\Desktop\\服装平台项目\\backend\\runtime\\screenshots\\ed520586d2ec46dea9ab89d9c572c4f6\\01.png",
+    "C:\\Users\\cc\\Desktop\\服装平台项目\\backend\\runtime\\screenshots\\ed520586d2ec46dea9ab89d9c572c4f6\\02.png",
+    "C:\\Users\\cc\\Desktop\\服装平台项目\\backend\\runtime\\screenshots\\ed520586d2ec46dea9ab89d9c572c4f6\\03.png",
+    "C:\\Users\\cc\\Desktop\\服装平台项目\\backend\\runtime\\screenshots\\ed520586d2ec46dea9ab89d9c572c4f6\\04.png",
+    "C:\\Users\\cc\\Desktop\\服装平台项目\\backend\\runtime\\screenshots\\ed520586d2ec46dea9ab89d9c572c4f6\\05.png",
+    "C:\\Users\\cc\\Desktop\\服装平台项目\\backend\\runtime\\screenshots\\ed520586d2ec46dea9ab89d9c572c4f6\\06.png",
+    "C:\\Users\\cc\\Desktop\\服装平台项目\\backend\\runtime\\screenshots\\ed520586d2ec46dea9ab89d9c572c4f6\\07.png"
+  ]
+}

@@ -1,0 +1,236 @@
+@import './tokens.css';
+@import './glass.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background: var(--ink-950);
+    text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+    min-height: 100svh;
+    overflow-x: hidden;
+    background:
+      radial-gradient(1200px 700px at 78% -10%, rgba(58, 36, 54, 0.35), transparent 60%),
+      radial-gradient(900px 650px at 12% 12%, rgba(110, 139, 134, 0.12), transparent 58%),
+      radial-gradient(700px 520px at 50% 110%, rgba(216, 190, 147, 0.05), transparent 70%),
+      var(--ink-950);
+    color: var(--ivory);
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
+  }
+
+  ::selection {
+    background: rgba(216, 190, 147, 0.3);
+    color: #fff;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  button:disabled {
+    cursor: not-allowed;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--focus-color);
+    outline-offset: 3px;
+  }
+
+  /* 键盘跳转落点不显示外框，但屏幕阅读器仍可定位 */
+  [tabindex='-1']:focus {
+    outline: none;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(216, 190, 147, 0.22);
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(216, 190, 147, 0.38);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .scrollbar-none {
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+  .page-pad {
+    padding-inline: var(--page-pad);
+  }
+  .safe-bottom {
+    padding-bottom: var(--safe-bottom);
+  }
+  .text-shadow-soft {
+    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.45);
+  }
+}
+
+#root {
+  min-height: 100vh;
+  min-height: 100svh;
+  isolation: isolate;
+}
+
+/* ------------------------------------------------------------------
+   分屏翻页（首页 / AI 造型室）
+   桌面：PageDeck 接管滚轮与键盘；移动端：退化为原生 scroll-snap
+------------------------------------------------------------------- */
+
+.deck-scroll {
+  height: 100vh;
+  height: 100dvh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scroll-snap-type: y mandatory;
+  scrollbar-width: none;
+  overscroll-behavior-y: contain;
+  touch-action: pan-y;
+  -webkit-overflow-scrolling: touch;
+}
+.deck-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.deck-section {
+  min-height: 100vh;
+  min-height: 100dvh;
+  height: 100vh;
+  height: 100dvh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  position: relative;
+}
+
+/* 屏内可滚动区域（AI 圆桌记录、商品列表等） */
+.deck-inner,
+[data-deck-scroll] {
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(216, 190, 147, 0.25) transparent;
+}
+
+.deck-inner::-webkit-scrollbar,
+[data-deck-scroll]::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.deck-inner::-webkit-scrollbar-thumb,
+[data-deck-scroll]::-webkit-scrollbar-thumb {
+  background: rgba(216, 190, 147, 0.25);
+  border-radius: 999px;
+}
+
+/*
+ * 移动端退化策略：分屏高度随内容自然增长，内部滚动区域改为随文档展开。
+ * 这样长内容不会被固定在 100dvh 的屏内再套一层滚动，避免与 scroll-snap
+ * 及底部圆点导航互相抢滚轮 / 手势。
+ */
+@media (max-width: 767px) {
+  .deck-scroll {
+    scroll-snap-type: y proximity;
+  }
+
+  .deck-section {
+    height: auto;
+    min-height: 100vh;
+    min-height: 100dvh;
+    scroll-snap-stop: normal;
+  }
+
+  .deck-inner,
+  [data-deck-scroll] {
+    overflow-y: visible;
+    overscroll-behavior-y: auto;
+  }
+}
+
+/* 移动端底部章节导航：贴底显示并避开 iPhone 底部安全区 */
+.deck-mobile-nav {
+  bottom: 0;
+  padding-bottom: calc(0.625rem + env(safe-area-inset-bottom, 0px));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .deck-scroll {
+    scroll-behavior: auto;
+  }
+
+  /* 装饰性循环动画：尊重系统的减少动态效果设置 */
+  .animate-bounce,
+  .animate-pulse,
+  .animate-float {
+    animation: none !important;
+  }
+
+  .toast-in {
+    animation: none !important;
+  }
+}
+
+/* 触屏设备关闭鼠标尾焰与跟随光晕，避免无意义的持续绘制 */
+@media (hover: none), (pointer: coarse) {
+  .flame-trail,
+  .cursor-glow {
+    display: none !important;
+  }
+}

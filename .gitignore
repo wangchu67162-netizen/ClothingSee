@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+backend/data/*.db
+backend/data/*.db-journal
+backend/runtime/
+backend/models/*
+!backend/models/.gitkeep
+
+# Node
+node_modules/
+frontend/dist/
+*.tsbuildinfo
+
+# Env / local
+.env
+.env.local
+!.env.example
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.log

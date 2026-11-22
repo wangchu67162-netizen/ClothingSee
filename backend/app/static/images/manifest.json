@@ -1,0 +1,24 @@
+{
+  "brand": "衣见 ATELIER",
+  "source": "Curated Unsplash photos downloaded at build time; generated fallbacks otherwise.",
+  "downloaded": [
+    "ys-ow-001",
+    "ys-ow-002",
+    "ys-ow-003",
+    "ys-tp-001",
+    "ys-tp-002",
+    "ys-tp-003",
+    "ys-tp-004",
+    "ys-dr-001",
+    "ys-dr-002",
+    "ys-bt-001",
+    "ys-bt-002",
+    "ys-ac-001",
+    "ys-ac-002",
+    "ys-ac-003"
+  ],
+  "fallback": [
+    "ys-dr-003",
+    "ys-bt-003"
+  ]
+}

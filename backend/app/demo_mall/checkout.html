@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>结算 · 云裳商城</title>
+  <meta name="description" content="云裳商城结算页（模拟支付）。" />
+  <link rel="stylesheet" href="mall.css" />
+</head>
+<body data-page="checkout">
+  <header class="mall-topbar">
+    <a class="mall-brand" href="index.html">
+      <span class="mall-brand-mark">云</span>
+      <span class="mall-brand-text">
+        <strong>云裳商城</strong>
+        <em>YUNSHANG MALL</em>
+      </span>
+    </a>
+    <span class="mall-steps">
+      <span class="is-done">1 选择商品</span>
+      <span class="is-current">2 填写地址</span>
+      <span>3 模拟支付</span>
+    </span>
+    <span class="mall-demo-badge">模拟商城 · 课程演示</span>
+  </header>
+
+  <main class="mall-checkout-main">
+    <p class="mall-breadcrumb">
+      <a href="index.html">云裳商城</a><span>/</span>
+      <a href="product.html" id="checkout-back">商品详情</a><span>/</span><span>结算</span>
+    </p>
+
+    <div id="checkout-loading" class="mall-loading">正在核对订单信息…</div>
+    <p id="checkout-fatal" class="mall-error" role="alert" hidden></p>
+
+    <div id="checkout-layout" class="mall-checkout-layout" hidden>
+      <section class="mall-panel mall-summary" aria-labelledby="checkout-summary-title">
+        <h2 id="checkout-summary-title">订单确认</h2>
+        <div class="mall-summary-item">
+          <div class="mall-summary-media"><img id="checkout-image" src="" alt="" /></div>
+          <div class="mall-summary-info">
+            <p class="mall-summary-name" id="checkout-name"></p>
+            <p class="mall-summary-variant" id="checkout-variant"></p>
+            <p class="mall-summary-price" id="checkout-price"></p>
+          </div>
+        </div>
+        <dl class="mall-summary-totals">
+          <div><dt>数量</dt><dd id="checkout-qty">1</dd></div>
+          <div><dt>运费</dt><dd>模拟包邮</dd></div>
+          <div class="is-total"><dt>合计</dt><dd id="checkout-total"></dd></div>
+        </dl>
+        <p class="mall-tip">这是模拟商城，提交后将生成平台演示订单，不会产生真实扣款。</p>
+      </section>
+
+      <section class="mall-panel">
+        <h2>收货信息</h2>
+        <form id="checkout-form" class="mall-form" novalidate>
+          <label class="mall-field">
+            <span>收货人</span>
+            <input id="ship-name" name="name" type="text" maxlength="32" autocomplete="name" placeholder="请输入收货人姓名" required />
+          </label>
+          <label class="mall-field">
+            <span>手机号</span>
+            <input id="ship-phone" name="phone" type="tel" maxlength="24" autocomplete="tel" placeholder="演示手机号，如 13800000000" required />
+          </label>
+          <label class="mall-field">
+            <span>收货地址</span>
+            <textarea id="ship-address" name="address" rows="3" maxlength="256" autocomplete="street-address" placeholder="省 / 市 / 区 / 详细地址" required></textarea>
+          </label>
+
+          <p id="checkout-error" class="mall-error" role="alert" hidden></p>
+
+          <div class="mall-form-actions">
+            <button type="submit" id="mall-place-order" data-testid="mall-place-order" class="mall-primary">
+              提交订单（模拟支付）
+            </button>
+            <a class="mall-secondary-link" href="index.html">再逛逛</a>
+          </div>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <footer class="mall-footer">
+    <p>云裳商城 · 衣见 ATELIER 内置模拟商城</p>
+    <p>本页为课程演示，不接入真实支付、不收集真实个人信息。</p>
+  </footer>
+
+  <script src="mall.js"></script>
+</body>
+</html>

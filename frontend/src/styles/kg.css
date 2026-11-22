@@ -1,0 +1,322 @@
+/* ------------------------------------------------------------------
+   Fashion knowledge graph · aurora field + HUD edges
+------------------------------------------------------------------- */
+
+.kg-aurora {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background:
+    radial-gradient(52% 38% at 50% 2%, rgba(45, 212, 191, 0.16), transparent 72%),
+    radial-gradient(46% 36% at 14% 76%, rgba(34, 197, 94, 0.1), transparent 72%),
+    radial-gradient(44% 34% at 88% 64%, rgba(99, 102, 241, 0.12), transparent 72%),
+    radial-gradient(60% 55% at 50% 42%, rgba(20, 42, 46, 0.24), transparent 70%),
+    linear-gradient(180deg, rgba(4, 9, 14, 0.86), rgba(3, 7, 12, 0.96));
+}
+
+.kg-aurora::before {
+  content: '';
+  position: absolute;
+  inset: -22% -12%;
+  background:
+    repeating-linear-gradient(
+      101deg,
+      transparent 0 5%,
+      rgba(94, 242, 214, 0.13) 6.4%,
+      rgba(56, 189, 248, 0.09) 8.2%,
+      transparent 10.5% 17%,
+      rgba(167, 139, 250, 0.07) 18.6%,
+      transparent 21% 29%
+    );
+  filter: blur(16px) saturate(150%);
+  mix-blend-mode: screen;
+  opacity: 0.78;
+  transform-origin: 50% 0%;
+  animation: kg-curtain 17s ease-in-out infinite alternate;
+}
+
+.kg-aurora::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(38% 26% at 50% 7%, rgba(110, 255, 220, 0.28), transparent 70%),
+    radial-gradient(30% 22% at 72% 20%, rgba(56, 189, 248, 0.16), transparent 70%),
+    radial-gradient(36% 24% at 24% 88%, rgba(74, 222, 128, 0.14), transparent 72%);
+  filter: blur(22px);
+  mix-blend-mode: screen;
+  opacity: 0.85;
+  animation: kg-aurora-glow 9s ease-in-out infinite alternate;
+}
+
+.kg-aurora__ribbon {
+  position: absolute;
+  left: -18%;
+  width: 136%;
+  height: 40%;
+  border-radius: 50%;
+  filter: blur(30px) saturate(165%);
+  mix-blend-mode: screen;
+  opacity: 1;
+  transform-origin: 50% 50%;
+  will-change: transform, opacity;
+}
+
+.kg-aurora__ribbon--1 {
+  top: -8%;
+  background: linear-gradient(
+    102deg,
+    transparent 4%,
+    rgba(55, 255, 205, 0.55) 28%,
+    rgba(84, 190, 255, 0.42) 56%,
+    rgba(139, 92, 246, 0.26) 78%,
+    transparent 96%
+  );
+  animation: kg-aurora-1 15s ease-in-out infinite alternate;
+}
+
+.kg-aurora__ribbon--2 {
+  top: 22%;
+  height: 42%;
+  background: linear-gradient(
+    78deg,
+    transparent 2%,
+    rgba(80, 130, 255, 0.32) 24%,
+    rgba(50, 255, 205, 0.4) 52%,
+    rgba(255, 120, 190, 0.16) 76%,
+    transparent 98%
+  );
+  animation: kg-aurora-2 19s ease-in-out infinite alternate;
+}
+
+.kg-aurora__ribbon--3 {
+  bottom: -16%;
+  height: 46%;
+  background: linear-gradient(
+    94deg,
+    transparent 6%,
+    rgba(34, 230, 255, 0.26) 32%,
+    rgba(110, 255, 195, 0.3) 58%,
+    rgba(167, 139, 250, 0.2) 82%,
+    transparent 98%
+  );
+  animation: kg-aurora-3 23s ease-in-out infinite alternate;
+}
+
+.kg-aurora__ribbon--4 {
+  top: -24%;
+  left: 30%;
+  width: 52%;
+  height: 150%;
+  border-radius: 44%;
+  background: linear-gradient(
+    186deg,
+    transparent 6%,
+    rgba(94, 242, 214, 0.28) 28%,
+    rgba(56, 189, 248, 0.16) 46%,
+    rgba(139, 92, 246, 0.18) 62%,
+    transparent 84%
+  );
+  filter: blur(34px) saturate(150%);
+  transform-origin: 50% 30%;
+  animation: kg-aurora-4 21s ease-in-out infinite alternate;
+}
+
+.kg-aurora__grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.34;
+  background-image:
+    linear-gradient(rgba(126, 232, 220, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(126, 232, 220, 0.07) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(ellipse 72% 68% at 50% 48%, #000 30%, transparent 78%);
+  -webkit-mask-image: radial-gradient(ellipse 72% 68% at 50% 48%, #000 30%, transparent 78%);
+}
+
+.kg-aurora__stars {
+  position: absolute;
+  inset: 0;
+  opacity: 0.55;
+  background-image:
+    radial-gradient(1px 1px at 12% 18%, rgba(210, 255, 248, 0.75), transparent 60%),
+    radial-gradient(1px 1px at 78% 12%, rgba(190, 225, 255, 0.6), transparent 60%),
+    radial-gradient(1.4px 1.4px at 64% 74%, rgba(255, 255, 255, 0.55), transparent 60%),
+    radial-gradient(1px 1px at 28% 82%, rgba(160, 255, 230, 0.45), transparent 60%),
+    radial-gradient(1px 1px at 88% 56%, rgba(190, 210, 255, 0.4), transparent 60%),
+    radial-gradient(1px 1px at 42% 34%, rgba(255, 255, 255, 0.35), transparent 60%);
+  animation: kg-twinkle 7s ease-in-out infinite alternate;
+}
+
+.kg-aurora__scan {
+  position: absolute;
+  inset: 0;
+  opacity: 0.16;
+  background: repeating-linear-gradient(
+    180deg,
+    transparent 0,
+    transparent 3px,
+    rgba(126, 232, 220, 0.09) 4px,
+    transparent 5px
+  );
+  mix-blend-mode: screen;
+}
+
+@keyframes kg-curtain {
+  0% {
+    transform: translate3d(-2%, 0, 0) skewX(-5deg) scaleY(0.96);
+    opacity: 0.55;
+  }
+  50% {
+    transform: translate3d(3%, 2%, 0) skewX(3deg) scaleY(1.08);
+    opacity: 0.92;
+  }
+  100% {
+    transform: translate3d(-1%, -1%, 0) skewX(-2deg) scaleY(1.02);
+    opacity: 0.68;
+  }
+}
+
+@keyframes kg-aurora-glow {
+  0% {
+    opacity: 0.55;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  100% {
+    opacity: 0.95;
+    transform: translate3d(0, 2%, 0) scale(1.06);
+  }
+}
+
+@keyframes kg-aurora-1 {
+  0% {
+    transform: translate3d(-3%, -2%, 0) rotate(-9deg) scaleY(0.9);
+    opacity: 0.55;
+  }
+  50% {
+    transform: translate3d(2%, 4%, 0) rotate(-4deg) scaleY(1.1);
+    opacity: 0.95;
+  }
+  100% {
+    transform: translate3d(5%, -1%, 0) rotate(-12deg) scaleY(1.02);
+    opacity: 0.7;
+  }
+}
+
+@keyframes kg-aurora-2 {
+  0% {
+    transform: translate3d(4%, 5%, 0) rotate(8deg) scaleY(1.04);
+    opacity: 0.5;
+  }
+  55% {
+    transform: translate3d(-4%, -3%, 0) rotate(2deg) scaleY(0.92);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate3d(-6%, 2%, 0) rotate(11deg) scaleY(1.12);
+    opacity: 0.6;
+  }
+}
+
+@keyframes kg-aurora-4 {
+  0% {
+    transform: translate3d(-8%, 2%, 0) rotate(-14deg) scaleY(0.94);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate3d(4%, -2%, 0) rotate(6deg) scaleY(1.06);
+    opacity: 0.88;
+  }
+  100% {
+    transform: translate3d(-2%, 4%, 0) rotate(-4deg) scaleY(1.12);
+    opacity: 0.62;
+  }
+}
+
+@keyframes kg-aurora-3 {
+  0% {
+    transform: translate3d(-2%, 6%, 0) rotate(-5deg) scaleY(0.94);
+    opacity: 0.45;
+  }
+  50% {
+    transform: translate3d(4%, -2%, 0) rotate(3deg) scaleY(1.08);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate3d(-5%, 0, 0) rotate(-8deg) scaleY(1);
+    opacity: 0.55;
+  }
+}
+
+@keyframes kg-twinkle {
+  0% {
+    opacity: 0.28;
+  }
+  100% {
+    opacity: 0.7;
+  }
+}
+
+/* ---------------------------------------------------------------- edges */
+
+.kg-edge-flow {
+  stroke-dasharray: 7 9;
+  animation: kg-edge-dash 2.4s linear infinite;
+}
+
+@keyframes kg-edge-dash {
+  to {
+    stroke-dashoffset: -32;
+  }
+}
+
+.kg-edge-thin {
+  stroke-dasharray: 2 7;
+  animation: kg-edge-dash 4.8s linear infinite reverse;
+}
+
+.kg-orbit {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: kg-orbit 18s linear infinite;
+}
+
+@keyframes kg-orbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.kg-node-halo {
+  animation: kg-halo 3.6s ease-in-out infinite;
+}
+
+@keyframes kg-halo {
+  0%,
+  100% {
+    opacity: 0.22;
+  }
+  50% {
+    opacity: 0.62;
+  }
+}
+
+.kg-hud-corner {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  border-color: rgba(126, 232, 220, 0.38);
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kg-aurora__ribbon,
+  .kg-aurora__stars,
+  .kg-edge-flow,
+  .kg-edge-thin,
+  .kg-orbit,
+  .kg-node-halo {
+    animation: none;
+  }
+}
